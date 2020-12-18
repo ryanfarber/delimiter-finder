@@ -1,0 +1,24 @@
+{
+  "name": "delimiter-finder",
+  "version": "1.0.0",
+  "description": "a simple utility to find words inside delimiters",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanfarber/delimiter-finder.git"
+  },
+  "keywords": [
+    "delimiter",
+    "string",
+    "tokens"
+  ],
+  "author": "ryan forever",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanfarber/delimiter-finder/issues"
+  },
+  "homepage": "https://github.com/ryanfarber/delimiter-finder#readme"
+}
