@@ -3,28 +3,31 @@
 function DelimiterFinder(delimiterInput) {
 	
 	this.find = function(string) {
-		let output = []
+		let arrayOutput = []
+		let objOutput = {}
 		let regex
 
 		if (Array.isArray(delimiterInput)) {
 
-			delimiterInput.forEach(token => {
-				regex = new RegExp("(?<=\\" + token + ")(\\w*)(?=\\" + token + ")", "gi")
+			delimiterInput.forEach(delimiter => {
+				regex = new RegExp("(?<=\\" + delimiter + ")(\\w*)(?=\\" + delimiter + ")", "gi")
 
 				if (string.match(regex)) {
 					let matches = string.match(regex)
-					output.push({delimiter: token, matches: matches})
+					arrayOutput.push({delimiter: delimiter, matches: matches})
+					objOutput[delimiter] = matches
 				} else {
-					output.push({delimiter: token, matches: undefined})
+					arrayOutput.push({delimiter: delimiter, matches: undefined})
+					objOutput[delimiter] = undefined
 				}
 			})
-			// console.log(output)
-			return output
+
+			return objOutput
 		} 
 
 		else if (typeof delimiterInput == "string" ) {
-			let token = delimiterInput
-			regex = new RegExp("(?<=\\" + token + ")(\\w*)(?=\\" + token + ")", "gi")
+			let delimiter = delimiterInput
+			regex = new RegExp("(?<=\\" + delimiter + ")(\\w*)(?=\\" + delimiter + ")", "gi")
 
 			if (string.match(regex)) {
 				output = string.match(regex)

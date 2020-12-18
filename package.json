@@ -1,6 +1,6 @@
 {
   "name": "delimiter-finder",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "a simple utility to find words inside delimiters",
   "main": "index.js",
   "scripts": {
