@@ -1,11 +1,12 @@
 # delimiter-finder
 a utility to find words inside delimiters.
+
 ---
 
 ## usage
 create a new object with an array of delimiters.
 
-use `find()` with a string as the input.  it will output an array of matches for each delimiter specified.
+use `.find()` with a string as the input.  it will output an array of matches for each delimiter specified.
 
 ```javascript
 

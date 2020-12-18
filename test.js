@@ -1,6 +1,5 @@
 // test.js
 
-
 let DelimiterFinder = require("./index.js")
 let delim = new DelimiterFinder(["$", "%"])
 
