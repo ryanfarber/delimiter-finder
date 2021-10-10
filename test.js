@@ -1,8 +1,13 @@
 // test.js
 
-let DelimiterFinder = require("./index.js")
-let delim = new DelimiterFinder(["$", "%"])
+const DelimiterFinder = require("./index.js")
+let delim
+let matches
 
+delim = new DelimiterFinder(["$", "%"])
+matches = delim.find("hello $world$, how are you %today%")
+console.log(matches)
 
-let matches = delim.find("hello $world$, how are you %today%")
+delim = new DelimiterFinder("$")
+matches = delim.find("hello $world$, how are you %today%")
 console.log(matches)
