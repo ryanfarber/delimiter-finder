@@ -1,41 +1,27 @@
 // index.js
 
 function DelimiterFinder(delimiterInput) {
+	this.findSingleMatch = function(delimiter, string){
+		const regex = new RegExp("(?<=\\" + delimiter + ")(\\w*)(?=\\" + delimiter + ")", "gi")
+		const matches = string.match(regex)
+		if (matches) {
+			return matches
+		} else {
+			return undefined
+		}
+	}
 	
 	this.find = function(string) {
-		let arrayOutput = []
-		let objOutput = {}
-		let regex
-
 		if (Array.isArray(delimiterInput)) {
-
+			const objOutput = {}
 			delimiterInput.forEach(delimiter => {
-				regex = new RegExp("(?<=\\" + delimiter + ")(\\w*)(?=\\" + delimiter + ")", "gi")
-
-				if (string.match(regex)) {
-					let matches = string.match(regex)
-					arrayOutput.push({delimiter: delimiter, matches: matches})
-					objOutput[delimiter] = matches
-				} else {
-					arrayOutput.push({delimiter: delimiter, matches: undefined})
-					objOutput[delimiter] = undefined
-				}
+				const matches = this.findSingleMatch(delimiter, string)
+				objOutput[delimiter] = matches
 			})
-
 			return objOutput
 		} 
-
-		else if (typeof delimiterInput == "string" ) {
-			let delimiter = delimiterInput
-			regex = new RegExp("(?<=\\" + delimiter + ")(\\w*)(?=\\" + delimiter + ")", "gi")
-
-			if (string.match(regex)) {
-				output = string.match(regex)
-				// console.log(output)
-				return output
-			} else {
-				return undefined
-			}
+		else if (typeof delimiterInput === "string" ) {
+			return this.findSingleMatch(delimiterInput, string)
 		}
 	}
 
